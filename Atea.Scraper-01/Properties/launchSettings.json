@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Atea.Scraper_01": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7219",
+      "launchBrowser": false
+    }
+  }
+}
