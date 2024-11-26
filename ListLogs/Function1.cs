@@ -21,7 +21,7 @@ namespace ListLogs
             DateTimeOffset.TryParse(req.Query["from"], out var from);
             DateTimeOffset.TryParse(req.Query["to"], out var to);
 
-            var tableServiceClient = new TableServiceClient("UserDevelopmentStorage=true");
+            var tableServiceClient = new TableServiceClient("UseDevelopmentStorage=true");
             await tableServiceClient.CreateTableIfNotExistsAsync("atea");
             var tableClient = tableServiceClient.GetTableClient("atea");
 
