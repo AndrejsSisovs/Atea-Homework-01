@@ -28,8 +28,8 @@ namespace ListLogs
             var records = tableClient.Query<TableEntity>
                 (item => item.Timestamp.Value >= from && item.Timestamp.Value <= to);
 
-            var response = records.AsPages(null, 50);
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            var response = records.AsPages(null, 10);
+            _logger.LogInformation("function processed a request");
 
             return new OkObjectResult(response);
         }

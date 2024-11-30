@@ -1,8 +1,6 @@
-using System;
 using System.Net.Http.Json;
 using Azure.Data.Tables;
 using Azure.Storage.Blobs;
-using Grpc.Core;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
@@ -30,7 +28,7 @@ namespace Atea.Scraper_01
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    logMessage = $"API call failed with status code: {response.StatusCode}";
+                    logMessage = $"error status code: {response.StatusCode}";
                     await LogToTableStorage(false, logMessage);
                     return;
                 }
@@ -51,7 +49,7 @@ namespace Atea.Scraper_01
             }
             catch (Exception ex)
             {
-                logMessage = $"An error occurred: {ex.Message}";
+                logMessage = $"error: {ex.Message}";
                 await LogToTableStorage(false, logMessage);
             }
 
@@ -77,5 +75,5 @@ namespace Atea.Scraper_01
             });
         }
     }
-    }
+}
 

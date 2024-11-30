@@ -19,7 +19,6 @@ namespace ListLogs
         public DateTimeOffset? Timestamp { get; set; }
         public ETag ETag { get; set; }
         public bool Success { get; set; }
-        public string Message { get; set; } 
         public string BlobName { get; set; }
     }
 }
