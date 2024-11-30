@@ -21,15 +21,15 @@ namespace ListLogs
             DateTimeOffset.TryParse(req.Query["from"], out var from);
             DateTimeOffset.TryParse(req.Query["to"], out var to);
 
-            var tableServiceClient = new TableServiceClient("UserDevelopmentStorage=true");
+            var tableServiceClient = new TableServiceClient("UseDevelopmentStorage=true");
             await tableServiceClient.CreateTableIfNotExistsAsync("atea");
             var tableClient = tableServiceClient.GetTableClient("atea");
 
             var records = tableClient.Query<TableEntity>
                 (item => item.Timestamp.Value >= from && item.Timestamp.Value <= to);
 
-            var response = records.AsPages(null, 50);
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            var response = records.AsPages(null, 10);
+            _logger.LogInformation("function processed a request");
 
             return new OkObjectResult(response);
         }
